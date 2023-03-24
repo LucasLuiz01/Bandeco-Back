@@ -1,0 +1,54 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id              Int          @id @default(autoincrement())
+  ra              String       @unique @db.VarChar(255)
+  password        String       @db.VarChar(255)
+  name            String
+  UserCount       UserCount[]
+}
+
+model UserCount {
+  id              Int          @id @default(autoincrement())
+  userId          Int
+  User            User     @relation(fields: [userId], references: [id])
+  balance         Int 
+  }
+
+  model Dates {
+  id              Int          @id @default(autoincrement())
+  date            DateTime
+  Menu            Menu[]
+  }
+
+  model Type {
+ id              Int          @id @default(autoincrement())
+ typeFood        String       @db.VarChar(255)
+ Menu            Menu[]
+ }
+
+  model Menu {
+id              Int          @id @default(autoincrement())
+dateId          Int
+Dates           Dates     @relation(fields: [dateId], references: [id])
+typeId          Int
+Type            Type     @relation(fields: [typeId], references: [id])
+isVeg           Boolean
+protein         String       @db.VarChar(255)
+complement      String       @db.VarChar(255)
+salad           String       @db.VarChar(255)
+dessert         String       @db.VarChar(255)
+juice           String       @db.VarChar(255)
+comments        String       @db.VarChar(255)
+}
+
