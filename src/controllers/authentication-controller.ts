@@ -26,8 +26,11 @@ export async function userUp (req: Request, res: Response) {
     return res.status(httpStatus.BAD_REQUEST).send("RA inválido");
   }
   try {
-  await signUpService(password,nome);
-    res.sendStatus(200)
+ const token = await signUpService(password,nome);
+    res.status(httpStatus.OK).send({
+      message: "Authenticado com sucesso",
+      token: token
+    })
   } catch (error) {
     console.log(error,"sadsadasdasdasdasdsadasdsad")
     if(error.message === "NotFound"){

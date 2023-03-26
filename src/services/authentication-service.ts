@@ -17,5 +17,6 @@ export async function signUpService(password:string, ra:string){
     if(!comparePassword){
       throw { message: "NotFound" }
     }
-    return verifyUser;
+    const token = jwt.sign({id: verifyUser.id}, process.env.JWT_SECRET,{expiresIn: 86400})
+    return token;
 }
