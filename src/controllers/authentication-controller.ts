@@ -4,6 +4,7 @@ import { signInService, signUpService } from "../services/authentication-service
 
 export async function userPost(req: Request, res: Response) {
   const { name, password, ra } = req.body;
+  console.log("EStou chegando")
   const nome = ra.toString();
   console.log(nome.length)
   if(nome.length !== 6){
@@ -14,6 +15,7 @@ export async function userPost(req: Request, res: Response) {
     await signInService(name,password,nome);
     res.sendStatus(200)
   } catch (error) {
+    console.log(error);
     return res.status(httpStatus.BAD_REQUEST).send(error);
   }
 }

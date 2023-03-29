@@ -1,46 +1,111 @@
-import prisma from "../src/database";
+import prisma from "../src/database/index.js"
 
 async function main() {
     await prisma.user.createMany({
         data: [{
             name: "Fabio",
             password: "12345",
-            ra: "123456"
+            ra: "123422"
         }, {
             name: "lucas",
             password: "12345",
-            ra: "123450"
+            ra: "22225"
         }, {
             name: "Marcelo",
             password: "12345",
-            ra: "123451"
+            ra: "123991"
         }, {
             name: "Rodrigo",
             password: "12345",
-            ra: "123452"
+            ra: "129952"
         },
         ]
     })
 
     await prisma.dates.createMany({
         data: [{
-            date: "12/03/2023"
+            date: "Segunda-Feira"
         }, {
-            date: "13/03/2023"
+            date: "Terça-Feira"
         }, {
-            date: "14/03/2023"
-        }]
+            date: "Quarta-Feira"
+        }, {
+            date: "Quinta-Feira"
+        }, {
+            date: "Sexta-Feira"
+        },]
     })
-
     await prisma.type.createMany({
         data: [{
-            typeFood: "almoco"
+            typeFood: "Almoço"
         }, {
-            typeFood: "jantar"
+            typeFood: "Jantar"
         }, {
             typeFood: "café da manhã"
         }]
     })
+
+    const diaDaSemana = await prisma.dates.findFirst({
+        where: {
+            date: "Segunda-Feira"
+        }
+    })
+    const typeAlmoco = await prisma.type.findFirst({
+        where: {
+            typeFood: "Almoço"
+        }
+    })
+    const typejantar = await prisma.type.findFirst({
+        where: {
+            typeFood: "Jantar"
+        }
+    })
+
+    await prisma.menu.createMany({
+        data: [{
+            dateId: diaDaSemana.id,
+            typeId: typeAlmoco.id,
+            isVeg: false,
+            protein: "Sobrecoxa à caçadora",
+            complement: "Virado de banana",
+            salad: "Acelga",
+            dessert: "Laranja",
+            juice: "Uva",
+            comments: "Contém glúten no pão. Pode conter ovo, leite e derivados no molho vinagrete Bom Sabor."
+
+        }, {
+            dateId: diaDaSemana.id,
+            typeId: typeAlmoco.id,
+            isVeg: true,
+            protein: "PTS com mandioquinha",
+            complement: "Virado de banana",
+            salad: "Acelga",
+            dessert: "Laranja",
+            juice: "Uva",
+            comments: "Contém glúten no pão. Pode conter ovo, leite e derivados no molho vinagrete Bom Sabor."
+        }, {
+            dateId: diaDaSemana.id,
+            typeId: typejantar.id,
+            isVeg: false,
+            protein: "Carne de panela com batata",
+            complement: "Abobrinha Aromática",
+            salad: "Chuchu com salsa",
+            dessert: "Laranja",
+            juice: "Uva",
+            comments: "Contém glúten no pão. Pode conter ovo, leite e derivados no molho vinagrete Bom Sabor."
+        }, {
+            dateId: diaDaSemana.id,
+            typeId: typeAlmoco.id,
+            isVeg: true,
+            protein: "Escondidinho Vegano (purê de batata, pts, cenoura, chuchu)",
+            complement: "Virado de banana",
+            salad: "Acelga",
+            dessert: "Laranja",
+            juice: "Uvo",
+            comments: "Contém glúten no pão. Pode conter ovo, leite e derivados no molho vinagrete Bom Sabor."
+        }]
+    })
+
 
     const user1 = await prisma.user.findFirst({
         where: {

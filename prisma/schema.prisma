@@ -27,7 +27,7 @@ model UserCount {
 
   model Dates {
   id              Int          @id @default(autoincrement())
-  date            DateTime
+  date            String       @db.VarChar(255)
   Menu            Menu[]
   }
 

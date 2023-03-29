@@ -10,13 +10,15 @@ return userExist;
 }
 
 async function postUser(name:string,password:string,ra:string) {
-    await prisma.user.create({
+   const userDados = await prisma.user.create({
         data:{
             name,
             password,
             ra
         }
     })
+
+    return userDados
 }
 
 const authenticationRepository = {

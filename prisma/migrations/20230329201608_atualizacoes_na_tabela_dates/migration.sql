@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "Dates" ALTER COLUMN "date" SET DATA TYPE VARCHAR(255);

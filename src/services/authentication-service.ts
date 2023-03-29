@@ -1,11 +1,12 @@
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import authenticationRepository from "../repositories/authentication-repositories.js";
+import userRepository from "../repositories/user-repositories.js";
 
 export async function signInService(name: string,password:string, ra:string){
     const passwordHash = bcrypt.hashSync(password, 6);
-    await authenticationRepository.postUser(name, passwordHash, ra);
-    
+    const userDados =  await authenticationRepository.postUser(name, passwordHash, ra);
+    await userRepository.postUserCount(userDados.id);
 }
 
 export async function signUpService(password:string, ra:string){
