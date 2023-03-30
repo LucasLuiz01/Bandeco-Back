@@ -22,49 +22,12 @@ async function main() {
         ]
     })
 
-    await prisma.dates.createMany({
-        data: [{
-            date: "Segunda-Feira"
-        }, {
-            date: "Terça-Feira"
-        }, {
-            date: "Quarta-Feira"
-        }, {
-            date: "Quinta-Feira"
-        }, {
-            date: "Sexta-Feira"
-        },]
-    })
-    await prisma.type.createMany({
-        data: [{
-            typeFood: "Almoço"
-        }, {
-            typeFood: "Jantar"
-        }, {
-            typeFood: "café da manhã"
-        }]
-    })
 
-    const diaDaSemana = await prisma.dates.findFirst({
-        where: {
-            date: "Segunda-Feira"
-        }
-    })
-    const typeAlmoco = await prisma.type.findFirst({
-        where: {
-            typeFood: "Almoço"
-        }
-    })
-    const typejantar = await prisma.type.findFirst({
-        where: {
-            typeFood: "Jantar"
-        }
-    })
 
     await prisma.menu.createMany({
         data: [{
-            dateId: diaDaSemana.id,
-            typeId: typeAlmoco.id,
+            date: "Segunda-Feira",
+            isDinner: false,
             isVeg: false,
             protein: "Sobrecoxa à caçadora",
             complement: "Virado de banana",
@@ -74,8 +37,8 @@ async function main() {
             comments: "Contém glúten no pão. Pode conter ovo, leite e derivados no molho vinagrete Bom Sabor."
 
         }, {
-            dateId: diaDaSemana.id,
-            typeId: typeAlmoco.id,
+            date: "Segunda-Feira",
+            isDinner: false,
             isVeg: true,
             protein: "PTS com mandioquinha",
             complement: "Virado de banana",
@@ -84,8 +47,8 @@ async function main() {
             juice: "Uva",
             comments: "Contém glúten no pão. Pode conter ovo, leite e derivados no molho vinagrete Bom Sabor."
         }, {
-            dateId: diaDaSemana.id,
-            typeId: typejantar.id,
+             date: "Segunda-Feira",
+             isDinner: true,
             isVeg: false,
             protein: "Carne de panela com batata",
             complement: "Abobrinha Aromática",
@@ -94,8 +57,8 @@ async function main() {
             juice: "Uva",
             comments: "Contém glúten no pão. Pode conter ovo, leite e derivados no molho vinagrete Bom Sabor."
         }, {
-            dateId: diaDaSemana.id,
-            typeId: typeAlmoco.id,
+             date: "Segunda-Feira",
+             isDinner: true,
             isVeg: true,
             protein: "Escondidinho Vegano (purê de batata, pts, cenoura, chuchu)",
             complement: "Virado de banana",
