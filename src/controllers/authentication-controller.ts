@@ -34,11 +34,10 @@ export async function userUp (req: Request, res: Response) {
       token: token
     })
   } catch (error) {
-    console.log(error,"sadsadasdasdasdasdsadasdsad")
     if(error.message === "NotFound"){
       return res.status(httpStatus.NOT_FOUND).send({
         message: "SENHA INVÁLIDA, OU USUARIO INVALIDO"
-      })
+      });
     }
     return res.status(httpStatus.BAD_REQUEST).send(error);
   }

@@ -3,7 +3,7 @@ import prisma from "../database/index.js";
 async function getDate(date:string) {
     const data = await prisma.menu.findMany({
         where:{
-            date: date
+            dateWeek: date
         }
     })
     return data

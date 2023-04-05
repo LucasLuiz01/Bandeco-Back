@@ -30,6 +30,7 @@ model UserCount {
   model Menu {
 id              Int          @id @default(autoincrement())
 date            String       @db.VarChar(255)
+dateWeek        String       @db.VarChar(255)
 isDinner        Boolean
 isVeg           Boolean
 protein         String       @db.VarChar(255)
