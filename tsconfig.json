@@ -1,11 +1,14 @@
 {
     "compilerOptions": {
-        "module": "ES6",
+        "module": "CommonJS",
         "outDir": "dist",
         "esModuleInterop": true,
-        "moduleResolution": "node"
+        "moduleResolution": "node",
+        "skipLibCheck": true, 
+        "baseUrl": "src"
     },
     "ts-node": {
         "esm":true
     }
+    
 }

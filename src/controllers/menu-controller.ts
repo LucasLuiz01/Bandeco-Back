@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import httpStatus from "http-status";
-import { dateService } from "../services/menu-service.js";
+import { dateService } from "../services/menu-service";
 
 export async function getMenuByday(req: Request, res: Response) {
     const date = req.params.date.toString();

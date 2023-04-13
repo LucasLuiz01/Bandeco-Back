@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import httpStatus from "http-status";
-import { signInSchema, signUpSchema } from "../schemas/authentication-schema.js"
+import { signInSchema, signUpSchema } from "../schemas/authentication-schema"
 import  jwt  from "jsonwebtoken";
  type userDados = {
   id: number,

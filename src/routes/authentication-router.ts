@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { userPost,userUp } from "../controllers/authentication-controller.js";
-import { authenticationVerify, authenticationVerifyUp } from "../middlewares/authentication-middleware.js";
+import { userPost,userUp } from "../controllers/authentication-controller";
+import { authenticationVerify, authenticationVerifyUp } from "../middlewares/authentication-middleware";
 
 
 export const authRoute = Router();

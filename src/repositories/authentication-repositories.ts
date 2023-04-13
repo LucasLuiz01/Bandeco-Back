@@ -1,4 +1,4 @@
-import prisma from "../database/index.js";
+import prisma from "../database/index";
 
 async function getUserRa(ra:string) {
 const userExist = await prisma.user.findFirst({

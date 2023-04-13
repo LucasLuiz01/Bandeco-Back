@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getMenuByday } from "../controllers/menu-controller.js";
+import { getMenuByday } from "../controllers/menu-controller";
 
 export const menuRoute = Router();
 

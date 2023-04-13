@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import httpStatus from "http-status";
-import { signInService, signUpService } from "../services/authentication-service.js";
+import { signInService, signUpService } from "../services/authentication-service";
 
 export async function userPost(req: Request, res: Response) {
   const { name, password, ra } = req.body;

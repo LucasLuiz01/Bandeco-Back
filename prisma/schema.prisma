@@ -25,19 +25,17 @@ model UserCount {
   balance         Int 
   }
 
-
-
   model Menu {
-id              Int          @id @default(autoincrement())
-date            String       @db.VarChar(255)
-dateWeek        String       @db.VarChar(255)
-isDinner        Boolean
-isVeg           Boolean
-protein         String       @db.VarChar(255)
-complement      String       @db.VarChar(255)
-salad           String       @db.VarChar(255)
-dessert         String       @db.VarChar(255)
-juice           String       @db.VarChar(255)
-comments        String       @db.VarChar(255)
-}
+  id              Int          @id @default(autoincrement())
+  date            String       @db.VarChar(255)
+  dateWeek        String       @db.VarChar(255)
+  isDinner        Boolean
+  isVeg           Boolean
+  protein         String       @db.VarChar(255)
+  complement      String       @db.VarChar(255)
+  salad           String       @db.VarChar(255)
+  dessert         String       @db.VarChar(255)
+  juice           String       @db.VarChar(255)
+  comments        String       @db.VarChar(255)
+  }
 

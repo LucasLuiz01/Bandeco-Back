@@ -1,7 +1,7 @@
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import authenticationRepository from "../repositories/authentication-repositories.js";
-import userRepository from "../repositories/user-repositories.js";
+import authenticationRepository from "../repositories/authentication-repositories";
+import userRepository from "../repositories/user-repositories";
 
 export async function signInService(name: string,password:string, ra:string){
     const passwordHash = bcrypt.hashSync(password, 6);

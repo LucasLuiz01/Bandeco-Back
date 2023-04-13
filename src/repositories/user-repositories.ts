@@ -1,4 +1,4 @@
-import prisma from "../database/index.js";
+import prisma from "../database/index";
 
 async function getUser(userId: number) {
     const user = await prisma.userCount.findFirst({

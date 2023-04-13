@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import httpStatus from "http-status";
-import { userCountService } from "../services/user-service.js";
-import { userUpdateService } from "../services/user-service.js";
+import { userCountService } from "../services/user-service";
+import { userUpdateService } from "../services/user-service";
 
 export async function getUser(req: Request, res: Response) {
   const userId = res.locals.userId

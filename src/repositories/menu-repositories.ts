@@ -1,4 +1,4 @@
-import prisma from "../database/index.js";
+import prisma from "../database/index";
 
 async function getDate(date:string) {
     const data = await prisma.menu.findMany({

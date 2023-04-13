@@ -1,4 +1,4 @@
-import userRepository from "../repositories/user-repositories.js";
+import userRepository from "../repositories/user-repositories";
 
 export async function userCountService(userId:number){
     const user = await userRepository.getUser(userId);

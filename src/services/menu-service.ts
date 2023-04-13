@@ -1,4 +1,4 @@
-import dateRepository from "../repositories/menu-repositories.js";
+import dateRepository from "../repositories/menu-repositories";
 
 export async function dateService(date:string){
     const datas = await dateRepository.getDate(date);
